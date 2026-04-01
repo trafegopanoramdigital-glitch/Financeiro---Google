@@ -15,29 +15,37 @@
       --red:#e05252;--red-dim:rgba(224,82,82,0.13);
       --amber:#e8a838;--amber-dim:rgba(232,168,56,0.13);
       --green:#3ec97a;--green-dim:rgba(62,201,122,0.13);
+      --purple:#a87ff7;--purple-dim:rgba(168,127,247,0.13);
+      --teal:#38c9c9;--teal-dim:rgba(56,201,201,0.13);
       --radius:10px;--radius-lg:14px;
       --font:'DM Sans',sans-serif;--mono:'DM Mono',monospace;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6;}
 
-    /* SIDEBAR */
+    /* ── GLOBAL BANNER ── */
+    .global-banner{background:var(--bg2);border-bottom:1px solid var(--border);padding:7px 28px 7px 252px;display:flex;align-items:center;gap:20px;font-size:12px;color:var(--text2);}
+    .gb-item{display:flex;align-items:center;gap:7px;}
+    .gb-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+    .gb-val{font-family:var(--mono);font-weight:600;font-size:13px;}
+    .gb-sep{width:1px;height:14px;background:var(--border2);}
+    .gb-title{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-right:4px;}
+
+    /* ── SIDEBAR ── */
     .sidebar{position:fixed;left:0;top:0;bottom:0;width:232px;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;z-index:50;}
-    .sidebar-logo{padding:18px 18px 14px;border-bottom:1px solid var(--border);}
+    .sidebar-logo{padding:16px 18px 12px;border-bottom:1px solid var(--border);}
     .logo-mark{display:flex;align-items:center;gap:10px;}
-    .logo-icon{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+    .logo-icon{width:30px;height:30px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
     .logo-text{font-size:14px;font-weight:600;line-height:1.2;}
     .logo-sub{font-size:11px;color:var(--text2);}
-
-    /* gestor */
     .gestor-box{padding:10px 12px;border-bottom:1px solid var(--border);position:relative;}
     .gestor-label{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:6px;}
-    .gestor-btn{display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;cursor:pointer;width:100%;text-align:left;transition:.15s;}
+    .gestor-btn{display:flex;align-items:center;gap:8px;padding:6px 10px;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;cursor:pointer;width:100%;text-align:left;transition:.15s;}
     .gestor-btn:hover{border-color:var(--accent);}
     .g-avatar{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
     .g-name{font-size:13px;font-weight:500;flex:1;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
     .g-arr{font-size:10px;color:var(--text3);}
-    .gestor-dd{display:none;position:absolute;left:12px;right:12px;top:calc(100% - 6px);background:var(--bg3);border:1px solid var(--border2);border-radius:8px;overflow:hidden;z-index:60;box-shadow:0 8px 24px rgba(0,0,0,.5);}
+    .gestor-dd{display:none;position:absolute;left:12px;right:12px;top:calc(100% - 4px);background:var(--bg3);border:1px solid var(--border2);border-radius:8px;overflow:hidden;z-index:60;box-shadow:0 8px 24px rgba(0,0,0,.5);}
     .gestor-dd.open{display:block;}
     .g-option{display:flex;align-items:center;gap:8px;padding:8px 10px;cursor:pointer;font-size:13px;transition:.1s;}
     .g-option:hover{background:rgba(255,255,255,.04);}
@@ -47,28 +55,27 @@
     .g-del:hover{color:var(--red);background:var(--red-dim);}
     .g-add{display:flex;align-items:center;gap:8px;padding:8px 10px;cursor:pointer;font-size:12px;color:var(--text3);border-top:1px solid var(--border);transition:.1s;}
     .g-add:hover{color:var(--accent);background:var(--accent-dim);}
-
-    .sidebar-nav{padding:10px;flex:1;overflow-y:auto;}
+    .sidebar-nav{padding:8px 10px;flex:1;overflow-y:auto;}
     .nav-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);padding:10px 10px 4px;}
-    .nav-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;color:var(--text2);font-size:13px;font-weight:500;transition:.15s;border:none;background:none;width:100%;text-align:left;}
+    .nav-item{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;cursor:pointer;color:var(--text2);font-size:13px;font-weight:500;transition:.15s;border:none;background:none;width:100%;text-align:left;}
     .nav-item:hover{background:var(--bg3);color:var(--text);}
     .nav-item.active{background:var(--accent-dim);color:var(--accent);}
     .nav-icon{width:16px;text-align:center;font-size:13px;flex-shrink:0;}
     .nav-badge{margin-left:auto;font-size:10px;font-weight:600;padding:1px 6px;border-radius:20px;background:var(--red-dim);color:var(--red);}
-    .sidebar-footer{padding:12px 16px;border-top:1px solid var(--border);font-size:11px;color:var(--text3);font-family:var(--mono);}
+    .nav-badge-purple{margin-left:auto;font-size:10px;font-weight:600;padding:1px 6px;border-radius:20px;background:var(--purple-dim);color:var(--purple);}
+    .sidebar-footer{padding:11px 16px;border-top:1px solid var(--border);font-size:11px;color:var(--text3);font-family:var(--mono);}
 
-    /* MAIN */
+    /* ── MAIN ── */
     .main{margin-left:232px;min-height:100vh;display:flex;flex-direction:column;}
-    .topbar{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--border);padding:14px 28px;display:flex;align-items:center;gap:12px;z-index:40;}
+    .topbar{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--border);padding:13px 28px;display:flex;align-items:center;gap:12px;z-index:40;}
     .topbar-info{flex:1;}
     .topbar-title{font-size:16px;font-weight:600;}
     .topbar-sub{font-size:12px;color:var(--text2);}
     .search-wrap{position:relative;}
-    .search-wrap input{background:var(--bg2);border:1px solid var(--border2);border-radius:8px;color:var(--text);font-family:var(--font);font-size:13px;padding:7px 12px 7px 32px;width:220px;outline:none;transition:border .15s;}
+    .search-wrap input{background:var(--bg2);border:1px solid var(--border2);border-radius:8px;color:var(--text);font-family:var(--font);font-size:13px;padding:7px 12px 7px 32px;width:200px;outline:none;transition:border .15s;}
     .search-wrap input:focus{border-color:var(--accent);}
     .search-wrap::before{content:'⌕';position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:15px;pointer-events:none;}
-
-    .btn{font-family:var(--font);font-size:13px;font-weight:500;padding:8px 16px;border-radius:8px;border:none;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
+    .btn{font-family:var(--font);font-size:13px;font-weight:500;padding:7px 14px;border-radius:8px;border:none;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
     .btn-primary{background:var(--accent);color:#fff;}
     .btn-primary:hover{background:#3b7de8;}
     .btn-ghost{background:var(--bg2);color:var(--text2);border:1px solid var(--border2);}
@@ -78,37 +85,44 @@
     .btn-danger:hover{background:var(--red-dim);}
     .btn-amber{background:transparent;color:var(--amber);border:1px solid rgba(232,168,56,.3);}
     .btn-amber:hover{background:var(--amber-dim);}
+    .btn-purple{background:transparent;color:var(--purple);border:1px solid rgba(168,127,247,.3);}
+    .btn-purple:hover{background:var(--purple-dim);}
+    .btn-green{background:transparent;color:var(--green);border:1px solid rgba(62,201,122,.3);}
+    .btn-green:hover{background:var(--green-dim);}
 
-    .page{padding:24px 28px;flex:1;}
-
-    .metrics-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:24px;}
-    .metric-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 18px;position:relative;overflow:hidden;}
+    .page{padding:22px 28px;flex:1;}
+    .metrics-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-bottom:22px;}
+    .metric-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px;position:relative;overflow:hidden;}
     .metric-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
     .mc-blue::before{background:var(--accent);}
     .mc-red::before{background:var(--red);}
     .mc-amber::before{background:var(--amber);}
     .mc-green::before{background:var(--green);}
-    .metric-label{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
-    .metric-value{font-size:28px;font-weight:600;line-height:1;}
+    .mc-purple::before{background:var(--purple);}
+    .mc-teal::before{background:var(--teal);}
+    .metric-label{font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
+    .metric-value{font-size:24px;font-weight:600;line-height:1;}
     .mv-blue{color:var(--accent);}
     .mv-red{color:var(--red);}
     .mv-amber{color:var(--amber);}
     .mv-green{color:var(--green);}
-    .metric-sub{font-size:11px;color:var(--text3);margin-top:4px;}
+    .mv-purple{color:var(--purple);}
+    .mv-teal{color:var(--teal);}
+    .metric-sub{font-size:10px;color:var(--text3);margin-top:4px;}
 
-    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
     .section-title{font-size:14px;font-weight:600;}
     .section-count{font-size:11px;padding:2px 8px;background:var(--bg3);border-radius:20px;color:var(--text2);border:1px solid var(--border);}
     .table-container{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;}
     table{width:100%;border-collapse:collapse;}
-    thead th{padding:11px 14px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);background:var(--bg3);border-bottom:1px solid var(--border);text-align:left;white-space:nowrap;user-select:none;}
+    thead th{padding:10px 14px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);background:var(--bg3);border-bottom:1px solid var(--border);text-align:left;white-space:nowrap;user-select:none;}
     thead th.sortable{cursor:pointer;}
     thead th.sortable:hover{color:var(--text2);}
     thead th.sorted{color:var(--accent);}
     tbody tr{border-bottom:1px solid var(--border);transition:background .1s;}
     tbody tr:last-child{border-bottom:none;}
     tbody tr:hover{background:rgba(255,255,255,.02);}
-    tbody td{padding:11px 14px;vertical-align:middle;}
+    tbody td{padding:10px 14px;vertical-align:middle;}
     .client-name{font-weight:500;font-size:13px;}
     .dias-pill{font-size:11px;padding:3px 9px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;color:var(--text2);white-space:nowrap;}
     .saldo-val{font-family:var(--mono);font-size:13px;font-weight:500;}
@@ -123,9 +137,11 @@
     .badge-atencao{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(232,168,56,.2);}
     .badge-ok{background:var(--green-dim);color:var(--green);border:1px solid rgba(62,201,122,.2);}
     .badge-ultimo{background:var(--red-dim);color:var(--red);border:2px solid var(--red);}
-    .actions{display:flex;gap:5px;justify-content:flex-end;}
+    .badge-pausado{background:var(--purple-dim);color:var(--purple);border:1px solid rgba(168,127,247,.2);}
+    .actions{display:flex;gap:4px;justify-content:flex-end;flex-wrap:wrap;}
     .empty{padding:40px;text-align:center;color:var(--text3);font-size:14px;}
     .empty-icon{font-size:28px;margin-bottom:8px;}
+    .pausa-motivo{font-size:11px;color:var(--text3);margin-top:2px;}
 
     /* MODAIS */
     .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
@@ -154,16 +170,21 @@
     .toast-green .toast-dot{background:var(--green);}
     .toast-red .toast-dot{background:var(--red);}
     .toast-amber .toast-dot{background:var(--amber);}
+    .toast-purple .toast-dot{background:var(--purple);}
     @keyframes tIn{from{transform:translateX(20px);opacity:0}to{transform:translateX(0);opacity:1}}
 
     ::-webkit-scrollbar{width:5px;height:5px;}
     ::-webkit-scrollbar-track{background:transparent;}
     ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:10px;}
 
+    @media(max-width:900px){
+      .metrics-row{grid-template-columns:repeat(3,minmax(0,1fr));}
+    }
     @media(max-width:768px){
       .sidebar{width:60px;}
-      .sidebar .logo-text,.sidebar .logo-sub,.gestor-label,.g-name,.g-arr,.nav-item span:not(.nav-icon),.nav-badge,.sidebar-footer{display:none;}
+      .sidebar .logo-text,.sidebar .logo-sub,.gestor-label,.g-name,.g-arr,.nav-item span:not(.nav-icon),.nav-badge,.nav-badge-purple,.sidebar-footer{display:none;}
       .main{margin-left:60px;}
+      .global-banner{padding-left:76px;}
       .metrics-row{grid-template-columns:repeat(2,1fr);}
       .topbar{padding:12px 16px;}
       .page{padding:16px;}
@@ -171,6 +192,18 @@
   </style>
 </head>
 <body>
+
+<!-- GLOBAL BANNER -->
+<div class="global-banner" id="global-banner">
+  <span class="gb-title">Todos os gestores</span>
+  <div class="gb-item"><div class="gb-dot" style="background:var(--accent)"></div><span style="color:var(--text2)">Ativos totais:</span><span class="gb-val mv-blue" id="gb-ativos">—</span></div>
+  <div class="gb-sep"></div>
+  <div class="gb-item"><div class="gb-dot" style="background:var(--red)"></div><span style="color:var(--text2)">Urgentes:</span><span class="gb-val mv-red" id="gb-urgentes">—</span></div>
+  <div class="gb-sep"></div>
+  <div class="gb-item"><div class="gb-dot" style="background:var(--purple)"></div><span style="color:var(--text2)">Pausados:</span><span class="gb-val mv-purple" id="gb-pausados">—</span></div>
+  <div class="gb-sep"></div>
+  <div class="gb-item"><div class="gb-dot" style="background:var(--amber)"></div><span style="color:var(--text2)">Cancelados no mês:</span><span class="gb-val mv-amber" id="gb-cancelados-mes">—</span></div>
+</div>
 
 <!-- SIDEBAR -->
 <aside class="sidebar">
@@ -205,6 +238,10 @@
     </button>
     <button class="nav-item" onclick="setTab('auto')" id="nav-auto">
       <span class="nav-icon">🔄</span><span>Pag. Automáticos</span>
+    </button>
+    <button class="nav-item" onclick="setTab('pausados')" id="nav-pausados">
+      <span class="nav-icon">⏸</span><span>Pausados</span>
+      <span class="nav-badge-purple" id="pausados-badge" style="display:none">0</span>
     </button>
     <button class="nav-item" onclick="setTab('cancelados')" id="nav-cancelados">
       <span class="nav-icon">🚫</span><span>Cancelados</span>
@@ -273,6 +310,25 @@
   </div>
 </div>
 
+<!-- MODAL PAUSAR -->
+<div class="modal-overlay" id="m-pausar">
+  <div class="modal modal-sm">
+    <div class="modal-header">
+      <div class="modal-title">Pausar cliente</div>
+      <button class="modal-close" onclick="fechar('m-pausar')">✕</button>
+    </div>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:16px">O cliente será movido para a aba <strong style="color:var(--purple)">Pausados</strong> e não terá cálculo de saldo enquanto pausado.</p>
+    <div class="form-group">
+      <label class="form-label">Motivo da pausa (opcional)</label>
+      <input class="form-input" id="p-motivo" type="text" placeholder="Ex: Aguardando verba, férias do cliente..." />
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="fechar('m-pausar')">Cancelar</button>
+      <button class="btn btn-purple" onclick="executarPausar()" style="background:var(--purple-dim)">⏸ Pausar</button>
+    </div>
+  </div>
+</div>
+
 <!-- MODAL GESTOR -->
 <div class="modal-overlay" id="mg">
   <div class="modal modal-sm">
@@ -320,17 +376,15 @@
 
 <script>
 // ══ ESTADO ══════════════════════════════════
-const CHAVE = 'finads_v4';
-
-const CORES = {
-  blue:  {bg:'#1e3a5f',fg:'#4f8ef7'},
-  green: {bg:'#1a3a28',fg:'#3ec97a'},
-  amber: {bg:'#3a2c10',fg:'#e8a838'},
-  red:   {bg:'#3a1a1a',fg:'#e05252'},
+const CHAVE='finads_v5';
+const CORES={
+  blue:{bg:'#1e3a5f',fg:'#4f8ef7'},
+  green:{bg:'#1a3a28',fg:'#3ec97a'},
+  amber:{bg:'#3a2c10',fg:'#e8a838'},
+  red:{bg:'#3a1a1a',fg:'#e05252'},
   purple:{bg:'#2a1a4a',fg:'#a87ff7'},
 };
-
-const BASE = {
+const BASE={
   gestorAtivo:'g1',
   gestores:{
     g1:{id:'g1',nome:'Meu perfil',cor:'blue',
@@ -360,18 +414,23 @@ const BASE = {
         {nome:'Recanto dos Animais',dias:'seg-dom',saldo:115.68,gasto:57},
       ],
       auto:[{nome:'Cliente Pag. Auto 1',obs:'Débito automático no cartão'}],
-      cancelados:[{nome:'Ex-Cliente Exemplo',cancelado:'15/02/2026',motivo:'Encerrou a empresa'}]
+      pausados:[],
+      cancelados:[{nome:'Ex-Cliente Exemplo',cancelado:'15/02/2026',canceladoTs:new Date(2026,1,15).getTime(),motivo:'Encerrou a empresa'}]
     }
   }
 };
 
-function carregar(){try{const r=localStorage.getItem(CHAVE);if(r)return JSON.parse(r);}catch(e){}return JSON.parse(JSON.stringify(BASE));}
+function carregar(){
+  try{const r=localStorage.getItem(CHAVE);if(r){const d=JSON.parse(r);// migrar dados antigos sem pausados
+    Object.values(d.gestores).forEach(g=>{if(!g.pausados)g.pausados=[];g.cancelados=g.cancelados.map(c=>{if(!c.canceladoTs&&c.cancelado){const p=c.cancelado.split('/');c.canceladoTs=new Date(+p[2],+p[1]-1,+p[0]).getTime();}return c;});});return d;}}catch(e){}return JSON.parse(JSON.stringify(BASE));
+}
 function salvar(){localStorage.setItem(CHAVE,JSON.stringify(st));}
 
 let st=carregar();
 let aba='meus';
 let editIdx=null;
 let editGid=null;
+let pausarIdx=null;
 let sortCol='dias';
 let sortDir=1;
 
@@ -381,7 +440,8 @@ function dd(k){return g()[k];}
 // ══ CÁLCULOS ════════════════════════════════
 const DL={'seg-sex':'Seg–Sex','seg-sab':'Seg–Sáb','seg-dom':'Todos os dias'};
 function hoje(){const d=new Date();d.setHours(0,0,0,0);return d;}
-function fD(d){if(!d)return'—';return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'});}
+function fD(d){if(!d)return'—';const dt=d instanceof Date?d:new Date(d);return dt.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'});}
+function mesNome(d){return d.toLocaleDateString('pt-BR',{month:'long',year:'numeric'});}
 function trabalha(d,t){const w=d.getDay();if(t==='seg-sex')return w>=1&&w<=5;if(t==='seg-sab')return w>=1&&w<=6;return true;}
 function calcD(saldo,gasto,tipo){
   if(!gasto||gasto<=0)return 999;
@@ -398,10 +458,35 @@ function calcR(saldo,gasto,tipo){
   }return null;
 }
 function alerta(dias){
-  if(dias<=0)return{l:'Último dia',   b:'badge-ultimo', d:'dr-red'};
-  if(dias<=2)return{l:'Gerar boleto', b:'badge-urgente',d:'dr-red'};
+  if(dias<=0)return{l:'Último dia',b:'badge-ultimo',d:'dr-red'};
+  if(dias<=2)return{l:'Gerar boleto',b:'badge-urgente',d:'dr-red'};
   if(dias<=7)return{l:'Perto de recarregar',b:'badge-atencao',d:'dr-amber'};
-  return            {l:'Tudo ok',     b:'badge-ok',     d:'dr-green'};
+  return{l:'Tudo ok',b:'badge-ok',d:'dr-green'};
+}
+
+// cancelados no mês atual
+function canceladosNoMes(){
+  const h=hoje();
+  let total=0;
+  Object.values(st.gestores).forEach(gx=>{
+    (gx.cancelados||[]).forEach(c=>{
+      if(!c.canceladoTs)return;
+      const d=new Date(c.canceladoTs);
+      if(d.getMonth()===h.getMonth()&&d.getFullYear()===h.getFullYear())total++;
+    });
+  });
+  return total;
+}
+
+// totais globais (todos gestores)
+function totaisGlobais(){
+  let ativos=0,urgentes=0,pausados=0;
+  Object.values(st.gestores).forEach(gx=>{
+    ativos+=(gx.meus||[]).length+(gx.auto||[]).length;
+    urgentes+=(gx.meus||[]).filter(c=>calcD(c.saldo,c.gasto,c.dias)<=2).length;
+    pausados+=(gx.pausados||[]).length;
+  });
+  return{ativos,urgentes,pausados};
 }
 
 // ══ GESTOR UI ═══════════════════════════════
@@ -419,55 +504,56 @@ function renderGestores(){
       <span class="g-option-name">${esc(gx2.nome)}</span>
       ${gx2.id!=='g1'?`<span class="g-del" onclick="event.stopPropagation();removerGestor('${gx2.id}')" title="Remover gestor">✕</span>`:''}
     </div>`).join('');
+  // banner global
+  const tot=totaisGlobais();
+  document.getElementById('gb-ativos').textContent=tot.ativos;
+  document.getElementById('gb-urgentes').textContent=tot.urgentes;
+  document.getElementById('gb-pausados').textContent=tot.pausados;
+  document.getElementById('gb-cancelados-mes').textContent=canceladosNoMes();
 }
 
 function toggleDD(){document.getElementById('g-dd').classList.toggle('open');}
-
-function selecionarGestor(id){
-  st.gestorAtivo=id;aba='meus';salvar();
-  document.getElementById('g-dd').classList.remove('open');
-  renderGestores();renderPage();
-}
-
+function selecionarGestor(id){st.gestorAtivo=id;aba='meus';salvar();document.getElementById('g-dd').classList.remove('open');renderGestores();renderPage();}
 function openMG(id){
-  editGid=id||null;
-  document.getElementById('g-dd').classList.remove('open');
+  editGid=id||null;document.getElementById('g-dd').classList.remove('open');
   if(id){const gx=st.gestores[id];document.getElementById('mg-title').textContent='Editar Gestor';document.getElementById('g-nome').value=gx.nome;document.getElementById('g-cor').value=gx.cor;}
   else{document.getElementById('mg-title').textContent='Novo Gestor';document.getElementById('g-nome').value='';document.getElementById('g-cor').value='blue';}
   abrir('mg');
 }
-
 function salvarGestor(){
-  const nome=document.getElementById('g-nome').value.trim();
-  const cor=document.getElementById('g-cor').value;
+  const nome=document.getElementById('g-nome').value.trim();const cor=document.getElementById('g-cor').value;
   if(!nome){alert('Informe o nome do gestor.');return;}
   if(editGid){st.gestores[editGid].nome=nome;st.gestores[editGid].cor=cor;toast('Gestor atualizado!','green');}
-  else{const id='g'+Date.now();st.gestores[id]={id,nome,cor,meus:[],auto:[],cancelados:[]};st.gestorAtivo=id;toast('"'+nome+'" criado!','green');}
+  else{const id='g'+Date.now();st.gestores[id]={id,nome,cor,meus:[],auto:[],pausados:[],cancelados:[]};st.gestorAtivo=id;toast('"'+nome+'" criado!','green');}
   salvar();renderGestores();fechar('mg');renderPage();
 }
-
 function removerGestor(id){
   if(!confirm('Remover este gestor e todos os seus dados permanentemente?'))return;
-  delete st.gestores[id];
-  if(st.gestorAtivo===id)st.gestorAtivo='g1';
+  delete st.gestores[id];if(st.gestorAtivo===id)st.gestorAtivo='g1';
   salvar();renderGestores();renderPage();
 }
 
 // ══ RENDER ══════════════════════════════════
 function renderPage(){
-  // nav
-  ['meus','auto','cancelados'].forEach(t=>document.getElementById('nav-'+t).classList.toggle('active',aba===t));
+  const tabs=['meus','auto','pausados','cancelados'];
+  tabs.forEach(t=>document.getElementById('nav-'+t).classList.toggle('active',aba===t));
   document.getElementById('sf-date').textContent=fD(hoje());
+
   const urg=dd('meus').filter(c=>calcD(c.saldo,c.gasto,c.dias)<=2).length;
   const ub=document.getElementById('urgente-badge');ub.textContent=urg;ub.style.display=urg>0?'':'none';
+  const paus=(dd('pausados')||[]).length;
+  const pb=document.getElementById('pausados-badge');pb.textContent=paus;pb.style.display=paus>0?'':'none';
+
   const gn=g().nome;
-  const titles={meus:'Clientes — '+gn,auto:'Pag. Automáticos — '+gn,cancelados:'Cancelados — '+gn};
-  const subs={meus:'Clientes ativos com cálculo de saldo e alertas',auto:'Clientes com pagamento automático (sem cálculo)',cancelados:'Histórico de cancelamentos'};
+  const titles={meus:'Clientes — '+gn,auto:'Pag. Automáticos — '+gn,pausados:'Pausados — '+gn,cancelados:'Cancelados — '+gn};
+  const subs={meus:'Clientes ativos com cálculo de saldo e alertas',auto:'Clientes com pagamento automático (sem cálculo)',pausados:'Clientes temporariamente pausados',cancelados:'Histórico de cancelamentos'};
   document.getElementById('tt').textContent=titles[aba];
   document.getElementById('ts').textContent=subs[aba];
 
+  renderGestores();
   if(aba==='meus')renderMeus();
   else if(aba==='auto')renderAuto();
+  else if(aba==='pausados')renderPausados();
   else renderCancelados();
 }
 
@@ -478,14 +564,25 @@ function renderMeus(){
   else if(sortCol==='saldo')rows.sort((a,b)=>sortDir*(a.saldo-b.saldo));
   else rows.sort((a,b)=>sortDir*(a.dr-b.dr));
 
-  const tot=dd('meus').length,urg=rows.filter(r=>r.dr<=2).length,att=rows.filter(r=>r.dr>2&&r.dr<=7).length,ok=rows.filter(r=>r.dr>7).length;
+  const ativos=dd('meus').length+dd('auto').length;
+  const urg=rows.filter(r=>r.dr<=2).length;
+  const att=rows.filter(r=>r.dr>2&&r.dr<=7).length;
+  const ok=rows.filter(r=>r.dr>7).length;
+  const pausTot=(dd('pausados')||[]).length;
+  const cancMes=dd('cancelados').filter(c=>{
+    if(!c.canceladoTs)return false;
+    const d=new Date(c.canceladoTs);const h=hoje();
+    return d.getMonth()===h.getMonth()&&d.getFullYear()===h.getFullYear();
+  }).length;
 
   document.getElementById('pg').innerHTML=`
   <div class="metrics-row">
-    <div class="metric-card mc-blue"><div class="metric-label">Total ativos</div><div class="metric-value mv-blue">${tot}</div><div class="metric-sub">clientes</div></div>
+    <div class="metric-card mc-blue"><div class="metric-label">Ativos (c/ auto)</div><div class="metric-value mv-blue">${ativos}</div><div class="metric-sub">clientes ativos</div></div>
     <div class="metric-card mc-red"><div class="metric-label">Urgente / boleto</div><div class="metric-value mv-red">${urg}</div><div class="metric-sub">ação imediata</div></div>
     <div class="metric-card mc-amber"><div class="metric-label">Atenção</div><div class="metric-value mv-amber">${att}</div><div class="metric-sub">perto do limite</div></div>
     <div class="metric-card mc-green"><div class="metric-label">Tudo ok</div><div class="metric-value mv-green">${ok}</div><div class="metric-sub">tranquilo</div></div>
+    <div class="metric-card mc-purple"><div class="metric-label">Pausados</div><div class="metric-value mv-purple">${pausTot}</div><div class="metric-sub">em pausa</div></div>
+    <div class="metric-card mc-teal"><div class="metric-label">Canc. no mês</div><div class="metric-value mv-teal">${cancMes}</div><div class="metric-sub">${mesNome(hoje())}</div></div>
   </div>
   <div class="section-header">
     <span class="section-title">Clientes</span>
@@ -513,6 +610,7 @@ function renderMeus(){
         <td><span class="badge ${al.b}">${al.l}</span></td>
         <td><div class="actions">
           <button class="btn btn-ghost btn-sm" onclick="editarCliente(${c.i})">Editar</button>
+          <button class="btn btn-purple btn-sm" onclick="abrirPausar(${c.i})">⏸ Pausar</button>
           <button class="btn btn-amber btn-sm" onclick="confirmarCancelar(${c.i})">Cancelar</button>
           <button class="btn btn-danger btn-sm" onclick="confirmarRemover(${c.i})">Remover</button>
         </div></td>
@@ -533,8 +631,34 @@ function renderAuto(){
       <td style="color:var(--text2)">${esc(c.obs||'—')}</td>
       <td><div class="actions"><button class="btn btn-danger btn-sm" onclick="remAuto(${dd('auto').indexOf(c)})">Remover</button></div></td>
     </tr>`).join(''):`<tr><td colspan="3"><div class="empty"><div class="empty-icon">🔄</div>Nenhum pagamento automático.</div></td></tr>`}
-    </tbody>
-  </table></div>`;
+    </tbody></table></div>`;
+}
+
+function renderPausados(){
+  const q=document.getElementById('search').value.toLowerCase();
+  const rows=(dd('pausados')||[]).filter(c=>c.nome.toLowerCase().includes(q));
+  document.getElementById('pg').innerHTML=`
+  <div class="section-header"><span class="section-title">Clientes Pausados</span><span class="section-count">${rows.length}</span></div>
+  <div class="table-container"><table>
+    <thead><tr>
+      <th>Cliente</th><th>Pausado em</th><th>Motivo</th><th>Dias úteis</th><th style="text-align:right">Saldo na pausa</th><th style="text-align:right">Ações</th>
+    </tr></thead>
+    <tbody>${rows.length?rows.map((c,ri)=>{const realIdx=(dd('pausados')||[]).indexOf(c);return`<tr>
+      <td>
+        <div class="client-name">${esc(c.nome)}</div>
+        <span class="badge badge-pausado" style="margin-top:4px">⏸ Pausado</span>
+      </td>
+      <td><span class="date-val">${esc(c.pausadoEm||'—')}</span></td>
+      <td style="color:var(--text2);font-size:12px">${esc(c.motivo||'—')}</td>
+      <td><span class="dias-pill">${DL[c.dias]||'—'}</span></td>
+      <td style="text-align:right"><span class="saldo-val">R$ ${(c.saldo||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</span></td>
+      <td><div class="actions">
+        <button class="btn btn-green btn-sm" onclick="reativarCliente(${realIdx})">▶ Reativar</button>
+        <button class="btn btn-amber btn-sm" onclick="confirmarCancelarPausado(${realIdx})">Cancelar</button>
+        <button class="btn btn-danger btn-sm" onclick="remPausado(${realIdx})">Remover</button>
+      </div></td>
+    </tr>`;}).join(''):`<tr><td colspan="6"><div class="empty"><div class="empty-icon">⏸</div>Nenhum cliente pausado.</div></td></tr>`}
+    </tbody></table></div>`;
 }
 
 function renderCancelados(){
@@ -550,9 +674,46 @@ function renderCancelados(){
       <td style="color:var(--text2)">${esc(c.motivo||'—')}</td>
       <td><div class="actions"><button class="btn btn-danger btn-sm" onclick="remCancelado(${dd('cancelados').indexOf(c)})">Remover</button></div></td>
     </tr>`).join(''):`<tr><td colspan="4"><div class="empty"><div class="empty-icon">🚫</div>Nenhum cancelamento registrado.</div></td></tr>`}
-    </tbody>
-  </table></div>`;
+    </tbody></table></div>`;
 }
+
+// ══ PAUSAR ══════════════════════════════════
+function abrirPausar(idx){
+  pausarIdx=idx;
+  document.getElementById('p-motivo').value='';
+  abrir('m-pausar');
+}
+function executarPausar(){
+  const motivo=document.getElementById('p-motivo').value.trim();
+  const c=dd('meus')[pausarIdx];
+  if(!c)return;
+  dd('pausados').push({...c,motivo,pausadoEm:fD(hoje()),pausadoTs:Date.now()});
+  dd('meus').splice(pausarIdx,1);
+  salvar();fechar('m-pausar');
+  toast('"'+c.nome+'" pausado.','purple');
+  aba='pausados';renderPage();
+}
+function reativarCliente(idx){
+  const c=(dd('pausados')||[])[idx];
+  if(!c)return;
+  dd('meus').push({nome:c.nome,dias:c.dias,saldo:c.saldo,gasto:c.gasto});
+  dd('pausados').splice(idx,1);
+  salvar();toast('"'+c.nome+'" reativado!','green');
+  aba='meus';renderPage();
+}
+function confirmarCancelarPausado(idx){
+  const c=(dd('pausados')||[])[idx];
+  document.getElementById('conf-title').textContent='Cancelar cliente pausado';
+  document.getElementById('conf-body').innerHTML=`Mover <span class="confirm-name">${esc(c.nome)}</span> para cancelados?`;
+  const btn=document.getElementById('conf-ok');btn.className='btn btn-amber';btn.textContent='Sim, cancelar';
+  btn.onclick=()=>{
+    const cx=(dd('pausados')||[])[idx];const ts=Date.now();
+    dd('cancelados').push({nome:cx.nome,cancelado:fD(new Date(ts)),canceladoTs:ts,motivo:cx.motivo||''});
+    dd('pausados').splice(idx,1);salvar();fechar('mconf');
+    toast('"'+cx.nome+'" cancelado.','amber');aba='cancelados';renderPage();
+  };abrir('mconf');
+}
+function remPausado(i){if(!confirm('Remover permanentemente?'))return;dd('pausados').splice(i,1);salvar();renderPage();}
 
 // ══ AÇÕES CLIENTES ══════════════════════════
 function abrirModal(){
@@ -560,29 +721,22 @@ function abrirModal(){
   document.getElementById('mc-title').textContent='Novo Cliente';
   ['f-nome','f-obs','f-motivo'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('f-dias').value='seg-sex';
-  document.getElementById('f-saldo').value='';
-  document.getElementById('f-gasto').value='';
+  document.getElementById('f-saldo').value='';document.getElementById('f-gasto').value='';
   document.getElementById('fd-dias').style.display=aba==='meus'?'':'none';
   document.getElementById('fd-vals').style.display=aba==='meus'?'':'none';
   document.getElementById('fd-obs').style.display=aba==='auto'?'':'none';
   document.getElementById('fd-mot').style.display=aba==='cancelados'?'':'none';
   abrir('mc');
 }
-
 function editarCliente(idx){
   editIdx=idx;const c=dd('meus')[idx];
   document.getElementById('mc-title').textContent='Editar Cliente';
-  document.getElementById('f-nome').value=c.nome;
-  document.getElementById('f-dias').value=c.dias;
-  document.getElementById('f-saldo').value=c.saldo;
-  document.getElementById('f-gasto').value=c.gasto;
-  document.getElementById('fd-dias').style.display='';
-  document.getElementById('fd-vals').style.display='';
-  document.getElementById('fd-obs').style.display='none';
-  document.getElementById('fd-mot').style.display='none';
+  document.getElementById('f-nome').value=c.nome;document.getElementById('f-dias').value=c.dias;
+  document.getElementById('f-saldo').value=c.saldo;document.getElementById('f-gasto').value=c.gasto;
+  document.getElementById('fd-dias').style.display='';document.getElementById('fd-vals').style.display='';
+  document.getElementById('fd-obs').style.display='none';document.getElementById('fd-mot').style.display='none';
   abrir('mc');
 }
-
 function salvarCliente(){
   const nome=document.getElementById('f-nome').value.trim();
   if(!nome){alert('Informe o nome do cliente.');return;}
@@ -594,51 +748,34 @@ function salvarCliente(){
     if(editIdx!==null){dd('meus')[editIdx]={nome,dias,saldo,gasto};toast('Cliente atualizado!','green');}
     else{dd('meus').push({nome,dias,saldo,gasto});toast('Cliente adicionado!','green');}
   }else if(aba==='auto'){
-    dd('auto').push({nome,obs:document.getElementById('f-obs').value.trim()});
-    toast('Adicionado!','green');
-  }else{
-    dd('cancelados').push({nome,cancelado:fD(hoje()),motivo:document.getElementById('f-motivo').value.trim()});
+    dd('auto').push({nome,obs:document.getElementById('f-obs').value.trim()});toast('Adicionado!','green');
+  }else if(aba==='cancelados'){
+    const ts=Date.now();
+    dd('cancelados').push({nome,cancelado:fD(new Date(ts)),canceladoTs:ts,motivo:document.getElementById('f-motivo').value.trim()});
     toast('Registrado.','green');
   }
   salvar();fechar('mc');renderPage();
 }
-
-// CANCELAR → vai para aba cancelados
 function confirmarCancelar(idx){
   const c=dd('meus')[idx];
   document.getElementById('conf-title').textContent='Cancelar cliente';
   document.getElementById('conf-body').innerHTML=`Mover <span class="confirm-name">${esc(c.nome)}</span> para cancelados?<br><small style="color:var(--text3)">O cliente sairá da lista de ativos.</small>`;
-  const btn=document.getElementById('conf-ok');
-  btn.className='btn btn-amber';btn.textContent='Sim, cancelar';
+  const btn=document.getElementById('conf-ok');btn.className='btn btn-amber';btn.textContent='Sim, cancelar';
   btn.onclick=()=>{
-    const cx=dd('meus')[idx];
-    dd('cancelados').push({nome:cx.nome,cancelado:fD(hoje()),motivo:''});
-    dd('meus').splice(idx,1);
-    salvar();fechar('mconf');
-    toast('"'+cx.nome+'" movido para cancelados.','amber');
-    aba='cancelados'; // ← navega para a aba
-    renderPage();
-  };
-  abrir('mconf');
+    const cx=dd('meus')[idx];const ts=Date.now();
+    dd('cancelados').push({nome:cx.nome,cancelado:fD(new Date(ts)),canceladoTs:ts,motivo:''});
+    dd('meus').splice(idx,1);salvar();fechar('mconf');
+    toast('"'+cx.nome+'" movido para cancelados.','amber');aba='cancelados';renderPage();
+  };abrir('mconf');
 }
-
-// REMOVER → exclui definitivamente
 function confirmarRemover(idx){
   const c=dd('meus')[idx];
   document.getElementById('conf-title').textContent='Remover cliente';
   document.getElementById('conf-body').innerHTML=`Remover <span class="confirm-name">${esc(c.nome)}</span> permanentemente?<br><small style="color:var(--text3)">Esta ação não pode ser desfeita.</small>`;
-  const btn=document.getElementById('conf-ok');
-  btn.className='btn btn-danger';btn.textContent='Sim, remover';
-  btn.onclick=()=>{
-    const nome=dd('meus')[idx].nome;
-    dd('meus').splice(idx,1);
-    salvar();fechar('mconf');
-    toast('"'+nome+'" removido permanentemente.','red');
-    renderPage();
-  };
+  const btn=document.getElementById('conf-ok');btn.className='btn btn-danger';btn.textContent='Sim, remover';
+  btn.onclick=()=>{const nome=dd('meus')[idx].nome;dd('meus').splice(idx,1);salvar();fechar('mconf');toast('"'+nome+'" removido.','red');renderPage();};
   abrir('mconf');
 }
-
 function remAuto(i){if(!confirm('Remover?'))return;dd('auto').splice(i,1);salvar();renderPage();}
 function remCancelado(i){if(!confirm('Remover permanentemente?'))return;dd('cancelados').splice(i,1);salvar();renderPage();}
 
@@ -656,11 +793,9 @@ function toast(msg,type='green'){
   setTimeout(()=>el.remove(),3200);
 }
 
-// fechar dropdown ao clicar fora
 document.addEventListener('click',e=>{if(!e.target.closest('.gestor-box'))document.getElementById('g-dd').classList.remove('open');});
-// fechar modais ao clicar fora
-['mc','mg','mconf'].forEach(id=>document.getElementById(id).addEventListener('click',function(e){if(e.target===this)fechar(id);}));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')['mc','mg','mconf'].forEach(fechar);});
+['mc','mg','mconf','m-pausar'].forEach(id=>document.getElementById(id).addEventListener('click',function(e){if(e.target===this)fechar(id);}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')['mc','mg','mconf','m-pausar'].forEach(fechar);});
 
 // ══ INIT ════════════════════════════════════
 renderGestores();
